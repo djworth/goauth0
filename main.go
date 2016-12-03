@@ -4,15 +4,19 @@ import (
 	"fmt"
 	"log"
 
-	"gitlab.com/schmorrison/goauth0/authentication"
+	goauth0 "gitlab.com/schmorrison/goauth0/authentication"
 )
+
+var AUTH0_CLIENT_ID = ""
+
+var AUTH0_DOMAIN = ""
 
 func main() {
 	fmt.Println("Starting go-auth0")
 
-	ac := authentication.NewAuth0Client("PgBbhVe8a7AZYrXRkGnEoFWjxSxgd1KS", "https://schmorrison.auth0.com")
+	ac := goauth0.NewAuth0Client(AUTH0_CLIENT_ID, AUTH0_DOMAIN)
 
-	k, err := ac.UserPasswordless("schmorrison@gmail.com", "link")
+	k, err := ac.UserPasswordless("testest@example.com", "link")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -20,7 +24,7 @@ func main() {
 		fmt.Println("K is true, email sent")
 	}
 
-	a, err := ac.UserPassSignin("schmorrison@gmail.com", "Qwer1234")
+	a, err := ac.UserPassSignin("testest@example.com", "Qwer1234")
 	if err != nil {
 		log.Fatal(err)
 	}
