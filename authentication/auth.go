@@ -194,7 +194,7 @@ type UserToken struct {
 
 //The UserProfile method for Auth0Client takes the user IdToken
 //of a user and returns a map[string]interface with the json response
-func (ac *Auth0Client) UserProfile(IdToken interface{}) (UserProfile, error) {
+func (ac *Auth0Client) UserProfileLookup(IdToken interface{}) (UserProfile, error) {
 	dmn := fmt.Sprintf("%s://%s/%s%s", ac.Domain.Scheme, ac.Domain.Host, ac.Domain.Path, "tokeninfo")
 
 	var jsn UserToken
