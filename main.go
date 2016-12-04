@@ -3,20 +3,26 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
+
+	"github.com/joho/godotenv"
 
 	goauth0 "gitlab.com/schmorrison/goauth0/authentication"
 )
 
-var AUTH0_CLIENT_ID = ""
-
-var AUTH0_DOMAIN = ""
-
 func main() {
 	fmt.Println("Starting go-auth0")
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 
-	ac := goauth0.NewAuth0Client(AUTH0_CLIENT_ID, AUTH0_DOMAIN)
+	ac, err := goauth0.NewAuth0Client(os.Getenv("AUTH0_CLIENT_ID"), os.Getenv("AUTH0_DOMAIN"))
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	a, err := ac.UserPassSignin("exmaple@test.com", "Qwer1234")
+	a, err := ac.UserPasswordSignin("schmorrison@gmail.com", "Qwer1234")
 	if err != nil {
 		log.Fatal(err)
 	}
