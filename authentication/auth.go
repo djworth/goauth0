@@ -194,7 +194,44 @@ type UserToken struct {
 
 //The UserProfile method for Auth0Client takes the user IdToken
 //of a user and returns a map[string]interface with the json response
-func (ac *Auth0Client) UserProfileLookup(IdToken interface{}) (UserProfile, error) {
+//DOes not work, CANT FIGURE OUT THE GET REQUEST PARAMETERS
+func (ac *Auth0Client) UserProfileAT(IdToken interface{}) (UserProfile, error) {
+	dmn := fmt.Sprintf("%s://%s/%s%s", ac.Domain.Scheme, ac.Domain.Host, ac.Domain.Path, "userinfo")
+
+	req, err := http.NewRequest("GET", dmn, bytes.NewBuffer([]byte("")))
+	req.Header.Set("Authorization", fmt.Sprintf("%s",IdToken))
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		panic(err)
+	}
+	defer resp.Body.Close()
+
+	var up UserProfile
+
+	if resp.StatusCode == 200 {
+		fmt.Println("       ...User profile retreieved successfully")
+		ur, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			log.Fatal(err)
+		}
+		err = json.Unmarshal(ur, &up)
+		if err != nil {
+			log.Fatal(err)
+		}
+		return up, nil
+	}
+	if resp.StatusCode == 400 {
+		var rk UserProfile
+		return rk, errors.New("Invalid Request")
+	}
+	return up, errors.New(fmt.Sprintf("Signin User: %v", resp.StatusCode))
+}
+
+//The UserProfile method for Auth0Client takes the user IdToken
+//of a user and returns a map[string]interface with the json response
+func (ac *Auth0Client) UserProfileJWT(IdToken interface{}) (UserProfile, error) {
 	dmn := fmt.Sprintf("%s://%s/%s%s", ac.Domain.Scheme, ac.Domain.Host, ac.Domain.Path, "tokeninfo")
 
 	var jsn UserToken

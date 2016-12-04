@@ -16,20 +16,12 @@ func main() {
 
 	ac := goauth0.NewAuth0Client(AUTH0_CLIENT_ID, AUTH0_DOMAIN)
 
-	k, err := ac.UserPasswordless("testest@example.com", "link")
-	if err != nil {
-		log.Fatal(err)
-	}
-	if k {
-		fmt.Println("K is true, email sent")
-	}
-
-	a, err := ac.UserPassSignin("testest@example.com", "Qwer1234")
+	a, err := ac.UserPassSignin("exmaple@test.com", "Qwer1234")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	up, err := ac.UserProfile(a["id_token"])
+	up, err := ac.UserProfileJWT(a["id_token"])
 	if err != nil {
 		log.Fatal(err)
 	}
