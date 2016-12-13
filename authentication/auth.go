@@ -26,7 +26,6 @@ func NewAuth0Client(ClientID string, Domain string) (*Auth0Client, error) {
 
 	newCli := &Auth0Client{Domain: dmn, ClientID: ClientID}
 
-	fmt.Println("Created new auth0 client...")
 	return newCli, nil
 }
 
@@ -120,7 +119,7 @@ func (ac *Auth0Client) UserProfileAT(IdToken interface{}) (UserProfile, error) {
 	//Userprofile from accesstoken uses a get request with no body and
 	//the accessToken in the authorization header in form: "Bearer [accesstoken]"
 	req, err := http.NewRequest("GET", dmn, bytes.NewBuffer([]byte("")))
-	req.Header.Set("Authorization", fmt.Sprintf("%s", IdToken.(string)))
+	req.Header.Set("Authorization", fmt.Sprintf("%s", IdToken))
 
 	client := &http.Client{}
 	resp, err := client.Do(req) //Perform get request

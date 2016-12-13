@@ -31,7 +31,7 @@ type UserProfile struct {
 	UserId            string `json:"user_id"`
 	Name              string `json:"name"`
 	Nickname          string `json:"nickname"`
-	Identities        []Identities
+	Identities        []Identity
 	CreatedAt         string `json:"created_at"`
 	LastPasswordReset string `json:"last_password_reset"`
 	GlobalClientId    string `json:"global_client_id"`
@@ -41,7 +41,7 @@ type UserToken struct {
 	IdToken string `json:"id_token"`
 }
 
-type Identities struct {
+type Identity struct {
 	UserId     string `json:"user_id"`
 	Provider   string `json:"provider"`
 	Connection string `json:"connection"`

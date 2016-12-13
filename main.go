@@ -7,7 +7,8 @@ import (
 
 	"github.com/joho/godotenv"
 
-	goauth0 "gitlab.com/schmorrison/goauth0/authentication"
+	auth "gitlab.com/schmorrison/goauth0/authentication"
+	mgmt "gitlab.com/schmorrison/goauth0/management"
 )
 
 func main() {
@@ -17,7 +18,32 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
-	ac, err := goauth0.NewAuth0Client(os.Getenv("AUTH0_CLIENT_ID"), os.Getenv("AUTH0_DOMAIN"))
+	//	authtest()
+	mgmttest()
+}
+
+func mgmttest() {
+	ac, err := mgmt.NewAuth0Client(os.Getenv("AUTH0_CLIENT_ID"), os.Getenv("AUTH0_CLIENT_SECRET"), os.Getenv("AUTH0_DOMAIN"))
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = ac.NewToken()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	p := "{\"user_metadata\":{\"profileCode\":1479,\"addresses\":{\"work_address\":\"100 Industrial Way\",\"home_address\":\"742 Evergreen Terrace\"}}}"
+
+	u, err := ac.UpdateUser("auth0|573e001a12c8df7018160ced", p)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("%+v\n", u)
+}
+
+func authtest() {
+	ac, err := auth.NewAuth0Client(os.Getenv("AUTH0_CLIENT_ID"), os.Getenv("AUTH0_DOMAIN"))
 	if err != nil {
 		log.Fatal(err)
 	}
