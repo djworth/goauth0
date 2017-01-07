@@ -1,5 +1,5 @@
-# goauth0
-Simple wrapper functions for auth0 authentication api
+# go-auth0
+To be a full-coverage package for Auth0 Authentication and Management APIs
 
 ##API Coverage:
   Authentication:
@@ -12,8 +12,7 @@ Simple wrapper functions for auth0 authentication api
   Management:
     -
 
-###Usage
-
+##Usage
 
 Create a Auth0 authentication Client by passing the ClientID and Domain for your app
 ```
