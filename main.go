@@ -7,8 +7,8 @@ import (
 
 	"github.com/joho/godotenv"
 
-	auth "gitlab.com/schmorrison/goauth0/authentication"
-	mgmt "gitlab.com/schmorrison/goauth0/management"
+	auth "gitlab.com/schmorrison/go-auth0/authentication"
+	mgmt "gitlab.com/schmorrison/go-auth0/management"
 )
 
 func main() {
@@ -18,8 +18,8 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
-	//	authtest()
-	mgmttest()
+	authtest()
+	//mgmttest()
 }
 
 func mgmttest() {
@@ -53,7 +53,7 @@ func authtest() {
 		log.Fatal(err)
 	}
 
-	up, err := ac.UserProfileJWT(a["id_token"])
+	up, err := ac.UserProfileAT(a["access_token"])
 	if err != nil {
 		log.Fatal(err)
 	}

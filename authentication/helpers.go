@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-//Function MapAuth0Response takes parameters of type http.Response
+//MapAuth0Response takes parameters of type http.Response
 func MapAuth0Response(r *http.Response) (rmp map[string]interface{}, err error) {
 	bresp, err := ioutil.ReadAll(r.Body) //Read response body
 	if err != nil {

@@ -13,6 +13,7 @@ type Auth0Payload struct {
 	ClientID    string `json:"client_id,omitempty"`
 	Domain      string `json:"domain,omitempty"`
 	Email       string `json:"email,omitempty"`
+	Phone       string `json:"phone_number,omitempty"`
 	Username    string `json:"username,omitempty"`
 	Password    string `json:"password,omitempty"`
 	AccessToken string `json:"access_token,omitempty"`
@@ -38,7 +39,9 @@ type UserProfile struct {
 }
 
 type UserToken struct {
-	IdToken string `json:"id_token"`
+	IdToken     string `json:"id_token"`
+	AccessToken string `json:"access_token"`
+	TokenType   string `json:"token_type"`
 }
 
 type Identity struct {

@@ -1,6 +1,17 @@
 # goauth0
 Simple wrapper functions for auth0 authentication api
 
+##API Coverage:
+  Authentication:
+    -Login - Database(Must update to /oauth/token {grant_type: password})
+    -Passwordless - Email or SMS start and authenticate
+    -Signup User - Create user by database
+    -Change Password - Send change password Email to user
+    -User Profile - Get user profile with access Token or Id token
+
+  Management:
+    -
+
 ###Usage
 
 
