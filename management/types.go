@@ -20,6 +20,11 @@ type NewTokenPayload struct {
 
 type Users []UserPayload
 
+type Metadata struct {
+	AppMetadata  interface{} `json:"app_metadata, omitempty"`
+	UserMetadata interface{} `json:"user_metadata, omitempty"`
+}
+
 type UserPayload struct {
 	Email         string                 `json:"email"`
 	EmailVerified bool                   `json:"email_verified"`
