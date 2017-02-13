@@ -1,18 +1,48 @@
 # go-auth0
 To be a full-coverage package for Auth0 Authentication and Management APIs
 
-##API Coverage:
+## API Coverage:
   Authentication:
-    -Login - Database(Must update to /oauth/token {grant_type: password})
-    -Passwordless - Email or SMS start and authenticate
-    -Signup User - Create user by database
-    -Change Password - Send change password Email to user
-    -User Profile - Get user profile with access Token or Id token
+    * Login - Database(Must update to /oauth/token {grant_type: password})
+    * Logout
+    * Passwordless
+    * Signup User
+    * Change Password
+    * User Profile
+    
+    TODO:
+        * SAML
+        * WS-Federation
+        * Impersonation
+        * Account Linking
+        * Impersonation
+        * Delegation
+        * API Authorization
+            * Authorize Client
+            * Get Token
+            * Resource Owner
 
   Management:
-    -
+  TODO:
+    * Client Grants
+    * Clients
+    * Connections
+    * Device Credentials
+    * Grants
+    * Logs
+    * Resource Servers
+    * Rules
+    * User Blocks
+    * Users
+    * Blacklists
+    * Emails
+    * Guardian
+    * Jobs
+    * Stats
+    * Tenants
+    * Tickets
 
-##Usage
+## Usage
 
 Create a Auth0 authentication Client by passing the ClientID and Domain for your app
 ```
