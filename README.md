@@ -17,9 +17,6 @@ To be a full-coverage package for Auth0 Authentication and Management APIs
     * Impersonation
     * Delegation
     * API Authorization
-        * Authorize Client
-        * Get Token
-        * Resource Owner
 
   Management:
     * Client Grants
