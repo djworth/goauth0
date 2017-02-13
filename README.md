@@ -10,21 +10,18 @@ To be a full-coverage package for Auth0 Authentication and Management APIs
     * Signup User
     * Change Password
     * User Profile
-    
-    TODO:
-        * SAML
-        * WS-Federation
-        * Impersonation
-        * Account Linking
-        * Impersonation
-        * Delegation
-        * API Authorization
-            * Authorize Client
-            * Get Token
-            * Resource Owner
+    * SAML
+    * WS-Federation
+    * Impersonation
+    * Account Linking
+    * Impersonation
+    * Delegation
+    * API Authorization
+        * Authorize Client
+        * Get Token
+        * Resource Owner
 
   Management:
-  TODO:
     * Client Grants
     * Clients
     * Connections
