@@ -2,8 +2,9 @@
 To be a full-coverage package for Auth0 Authentication and Management APIs
 
 ## API Coverage:
+
   Authentication:
-    * Login - Database(Must update to /oauth/token {grant_type: password})
+    * Login
     * Logout
     * Passwordless
     * Signup User
