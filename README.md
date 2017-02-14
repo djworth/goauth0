@@ -3,39 +3,39 @@ To be a full-coverage package for Auth0 Authentication and Management APIs
 
 ## API Coverage:
 
-  - [] Authentication:
+  - [ ] Authentication:
     * [x] Login
     * [x] Logout
     * [x] Passwordless
     * [x] Signup User
     * [x] Change Password
     * [x] User Profile
-    * [] SAML
-    * [] WS-Federation
-    * [] Impersonation
-    * [] Account Linking
-    * [] Impersonation
-    * [] Delegation
-    * [] API Authorization
+    * [ ] SAML
+    * [ ] WS-Federation
+    * [ ] Impersonation
+    * [ ] Account Linking
+    * [ ] Impersonation
+    * [ ] Delegation
+    * [ ] API Authorization
 
-  - [] Management:
-    * [] Client Grants
-    * [] Clients
-    * [] Connections
-    * [] Device Credentials
-    * [] Grants
-    * [] Logs
-    * [] Resource Servers
-    * [] Rules
-    * [] User Blocks
-    * [] Users
-    * [] Blacklists
-    * [] Emails
-    * [] Guardian
-    * [] Jobs
-    * [] Stats
-    * [] Tenants
-    * [] Tickets
+  - [ ] Management:
+    * [ ] Client Grants
+    * [ ] Clients
+    * [ ] Connections
+    * [ ] Device Credentials
+    * [ ] Grants
+    * [ ] Logs
+    * [ ] Resource Servers
+    * [ ] Rules
+    * [ ] User Blocks
+    * [ ] Users
+    * [ ] Blacklists
+    * [ ] Emails
+    * [ ] Guardian
+    * [ ] Jobs
+    * [ ] Stats
+    * [ ] Tenants
+    * [ ] Tickets
 
 ## Usage
 
