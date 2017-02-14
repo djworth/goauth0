@@ -1,7 +1,7 @@
 # go-auth0
 To be a full-coverage package for Auth0 Authentication and Management APIs
 
-![alt text](assets/GoAuth0-Gopher.png)
+![alt text](assets/GoAuth0-Gopher.svg)
 
 ## API Coverage:
 
