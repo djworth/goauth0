@@ -3,7 +3,7 @@ To be a full-coverage package for Auth0 Authentication and Management APIs
 
 ## API Coverage:
 
-  Authentication:
+  1. Authentication:
     * Login
     * Logout
     * Passwordless
@@ -18,7 +18,7 @@ To be a full-coverage package for Auth0 Authentication and Management APIs
     * Delegation
     * API Authorization
 
-  Management:
+  2. Management:
     * Client Grants
     * Clients
     * Connections
