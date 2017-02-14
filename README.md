@@ -37,6 +37,8 @@ To be a full-coverage package for Auth0 Authentication and Management APIs
     * [ ] Tenants
     * [ ] Tickets
 
+  - [ ] Error Codes
+
 ## Usage
 
 > Create a Auth0 authentication Client by passing the ClientID and Domain for your app
