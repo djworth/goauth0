@@ -14,16 +14,16 @@ func (ac *Auth0Client) UserPasswordSignin(Username string, Password string) (map
 		ac.Domain.Scheme,
 		ac.Domain.Host,
 		ac.Domain.Path,
-		"oauth/ro") //TBD: Deprecation notice to be posted
-	//Update to oauth/token for future
+		"oauth/token")
 
 	str := Auth0Payload{ClientID: ac.ClientID, //Generate the payload from domain and username/password
-		Domain:     dmn,
-		Username:   Username, //Signin requires the username which may be the same email
-		Password:   Password,
-		Connection: "Username-Password-Authentication",
-		GrantType:  "password",
-		Scope:      "openid name email"}
+		ClientSecret: ac.ClientSecret,
+		Domain:       dmn,
+		Username:     Username, //Signin requires the username which may be the same email
+		Password:     Password,
+		Connection:   "Username-Password-Authentication",
+		GrantType:    "password",
+		Scope:        "openid name email"}
 
 	jsn, err := json.Marshal(str) //Encode Payload as JSON
 

@@ -8,8 +8,9 @@ import (
 
 //NewAuth0Client is the first method to run
 //Pass the parameters [ClientID], which is the Auth0ClientID and
+//the parameters [ClientSecret], which is the Auth0ClientSecret and
 //the Management account domain in the form of "https://[username].auth0.com"
-func NewAuth0Client(ClientID string, Domain string) (*Auth0Client, error) {
+func NewAuth0Client(ClientID string, ClientSecret string, Domain string) (*Auth0Client, error) {
 
 	dmn, err := url.Parse(Domain)
 	if err != nil {
@@ -19,7 +20,7 @@ func NewAuth0Client(ClientID string, Domain string) (*Auth0Client, error) {
 		return nil, errors.New("Must define a scheme of https")
 	}
 
-	newCli := &Auth0Client{Domain: dmn, ClientID: ClientID}
+	newCli := &Auth0Client{Domain: dmn, ClientID: ClientID, ClientSecret: ClientSecret}
 
 	return newCli, nil
 }

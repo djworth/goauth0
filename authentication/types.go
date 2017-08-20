@@ -5,22 +5,25 @@ import (
 )
 
 type Auth0Client struct {
-	ClientID string
-	Domain   *url.URL
+	ClientID     string
+	ClientSecret string
+	Domain       *url.URL
 }
 
 type Auth0Payload struct {
-	ClientID    string `json:"client_id,omitempty"`
-	Domain      string `json:"domain,omitempty"`
-	Email       string `json:"email,omitempty"`
-	Phone       string `json:"phone_number,omitempty"`
-	Username    string `json:"username,omitempty"`
-	Password    string `json:"password,omitempty"`
-	AccessToken string `json:"access_token,omitempty"`
-	Connection  string `json:"connection,omitempty"`
-	GrantType   string `json:"grant_type,omitempty"`
-	Scope       string `json:"scope,omitempty"`
-	Send        string `json:"send,omitempty"`
+	ClientID     string `json:"client_id,omitempty"`
+	ClientSecret string `json:"client_secret,omitempty"`
+	Audience     string `json:"audience,omitempty"`
+	Domain       string `json:"domain,omitempty"`
+	Email        string `json:"email,omitempty"`
+	Phone        string `json:"phone_number,omitempty"`
+	Username     string `json:"username,omitempty"`
+	Password     string `json:"password,omitempty"`
+	AccessToken  string `json:"access_token,omitempty"`
+	Connection   string `json:"connection,omitempty"`
+	GrantType    string `json:"grant_type,omitempty"`
+	Scope        string `json:"scope,omitempty"`
+	Send         string `json:"send,omitempty"`
 }
 
 type UserProfile struct {
@@ -33,9 +36,11 @@ type UserProfile struct {
 	Name              string `json:"name"`
 	Nickname          string `json:"nickname"`
 	Identities        []Identity
-	CreatedAt         string `json:"created_at"`
-	LastPasswordReset string `json:"last_password_reset"`
-	GlobalClientId    string `json:"global_client_id"`
+	CreatedAt         string                 `json:"created_at"`
+	LastPasswordReset string                 `json:"last_password_reset"`
+	GlobalClientId    string                 `json:"global_client_id"`
+	AppMetadata       map[string]interface{} `json:"app_metadata,omitempty"`
+	UserMetadata      map[string]interface{} `json:"user_metadata,omitempty"`
 }
 
 type UserToken struct {
